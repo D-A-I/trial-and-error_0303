@@ -4,6 +4,6 @@ import { hello } from '../src/sub';
  */
 describe('モジュールを読込んでみる。', () => {
     it(`subはHelloを返す。`, () => {
-        chai.assert.equal('Hello', hello());
+        chai.assert.equal('Pello', hello()); // assert形式は止めたい..
     });
 });
