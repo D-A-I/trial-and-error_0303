@@ -6,4 +6,4 @@ karmaでのBDDを中心として開発することを想定し、HMRの設定は
 - webpack
 - karma(mocha, chai)
 - yarn
-- jquery
+- jquery(..未来のために、umbrella.jsに変えるかも)
