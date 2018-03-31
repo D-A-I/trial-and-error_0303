@@ -5,8 +5,9 @@
  * 構成が煩雑になるのを避けるため、karmaやwebpackは、可能な限りシンプルに使う
  * これ以上処理を追加したい場合は、熟考すること
  * -----
- * 現状は、karma init後のデフォルトの状態から、karma-typescriptの、以下設定を追加した状態
- * https://github.com/monounity/karma-typescript/blob/master/cookbook.md
+ * 1.karma init後のデフォルトから、karma-typescriptの、以下設定を追加
+ *   https://github.com/monounity/karma-typescript/blob/master/cookbook.md
+ * 2.tsconfig.jsonを読み込むように設定
  */
 
 module.exports = function (config) {
@@ -76,6 +77,11 @@ module.exports = function (config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+    
+    /* tsconfig.jsonを読み込むように指定する */
+    karmaTypescriptConfig: {
+      tsconfig: "./tsconfig.json"
+    }
   })
 }
