@@ -2,12 +2,13 @@
 // Generated on Sun Mar 04 2018 02:42:13 GMT+0900 (JST)
 
 /**
- * 構成が煩雑になるのを避けるため、karmaやwebpackは、可能な限りシンプルに使う
- * これ以上処理を追加したい場合は、熟考すること
+ * ## 注意 ##
+ * メンテナンスにコストがかかるため、構成を煩雑にしないよう（webpackやkarmaは）できる限りシンプルに使う
+ * 処理を追加する場合は熟考すること
  * -----
  * 1.karma init後のデフォルトから、karma-typescriptの、以下設定を追加
  *   https://github.com/monounity/karma-typescript/blob/master/cookbook.md
- * 2.tsconfig.jsonを読み込むように設定
+ * 2.karma-typescriptが、tsconfig.jsonを読み込むように設定
  */
 
 module.exports = function (config) {
