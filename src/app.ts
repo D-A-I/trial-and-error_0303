@@ -1,6 +1,6 @@
 /**
- * tsconfig.jsonで"allowSyntheticDefaultImports"をtrueにしないと、
- * jqueryの読込みの際、default exportが無い旨のエラーになる
+ * import $ from 'jquery'にする場合、tsconfig.jsonで"allowSyntheticDefaultImports"をtrueにしないと、
+ * default exportが無い旨のエラーになる。今回は、defaultが無い想定でimportする
  */
 import * as $ from 'jquery';
 import Vue from 'vue';
