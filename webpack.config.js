@@ -4,31 +4,7 @@
  * 処理を追加する場合は熟考すること
  */
 
-/*
-module.exports = {
-    mode: 'development', //sourcemapを有効にする
-    entry: './src/app',
-    output: {
-        path: `${__dirname}/dist`,
-        filename: 'app.bundle.js'
-    },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
-    },
-    devtool: 'source-map',
-    module: {
-        rules: [{
-            test: /\.tsx?$/,
-            use: 'ts-loader'
-        }]
-    }
-}
-*/
-
-// node.jsはESM化の途中なので、CJS方式で読込む
+// node.jsはESM化の途中..CJS方式で読込む
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // 環境変数によらない共通の設定
@@ -56,7 +32,7 @@ let config = {
     ]
 };
 
-// 環境変数によって切り分ける設定
+// 環境変数によって切り分ける
 if (process.env.NODE_ENV === 'production') {
     // コードを最適化する
     config.mode = 'production';
