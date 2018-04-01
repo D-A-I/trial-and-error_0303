@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === 'production') {
     // コードを最適化する
     config.mode = 'production';
 } else {
-    // source-mapを有効にする。inline-source-map等を使用しても良い
+    // source-mapを有効にする。なお、inline-source-map等を使用しても良い
     config.mode = 'development';
     config.devtool = 'source-map';
 }
