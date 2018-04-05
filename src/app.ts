@@ -1,13 +1,12 @@
 /**
  * import $ from 'jquery'にする場合、tsconfig.jsonで"allowSyntheticDefaultImports"をtrueにしないと、
- * default exportが無い旨のエラーになる。今回は、defaultが無い想定でimportする
+ * default exportが無い旨のエラーになる。default exportは対応されなさそうなんで、import * as..を使用する
  */
 import * as $ from 'jquery';
 import Vue from 'vue';
 
-// まだ何もしていない独自のモジュール
+// 独自のモジュール
 // import { hello } from './sub';
-//alert(hello());
 
 $(function () {
     new Vue({

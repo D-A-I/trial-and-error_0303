@@ -43,7 +43,7 @@ let config = [{
         /* vue.js公式の指定
          * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したいそう
          * ＊ DefinePluginは、C言語の#defineと同様の機能
-         * ＊ npm scriptで、webpackをキックする時に環境変数を指定している。npm script経由なら必要なさそう */
+         * ＊ npm scriptで、webpackをキックする時に環境変数を指定している。npm script経由なら必要ないかも..要確認 */
         new DefinePlugin({
             'process.env': {
                 NODE_ENV: '"production"'
