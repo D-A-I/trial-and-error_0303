@@ -4,9 +4,9 @@
 /**
  * ## 注意 ##
  * メンテナンスにコストがかかるため、構成を煩雑にしないよう（webpackやkarmaは）できる限りシンプルに使う
- * 処理を追加する場合は熟考すること
+ * 処理を追加する場合は熟考すること.. なお、今後vue.js公式の推奨設定に変更するかも
  * -----
- * 1.karma init後のデフォルトから、karma-typescriptの、以下設定を追加
+ * 1.karma init後のデフォルト状態から、karma-typescriptの、以下設定を追加
  *   https://github.com/monounity/karma-typescript/blob/master/cookbook.md
  * 2.karma-typescriptが、tsconfig.jsonを読み込むように設定
  */

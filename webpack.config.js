@@ -13,7 +13,7 @@ let isProduction = process.env.NODE_ENV === 'production';
 // 念のためモードを表示
 console.log(`\nproduction：${isProduction}\n`);
 
-// 別の定義を追加したい場合、オブジェクトリテラルを追加する
+// 定義を追加したい場合、オブジェクトリテラルを追加する
 let config = [{
     // 環境によってmodeを切替える
     mode: isProduction ? 'production' : 'development',

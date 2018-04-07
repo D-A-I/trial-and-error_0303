@@ -1,0 +1,18 @@
+// 既定値を上書きするには、このファイル内にキー バインドを挿入します
+/* 念の為githubに登録する。ただし、恐らく.vscodeフォルダ下にあるだけだと働かない
+ * ubuntuでは/home/owl/.config/Codeに格納している */
+[
+    {
+        "key": "shift+alt+b",
+        "command": "workbench.action.tasks.build"
+    },
+    {
+        "key": "shift+alt+l",
+        "command": "workbench.action.tasks.runTask",
+        "args": "npm start"
+    },
+    {
+        "key": "shift+alt+t",
+        "command": "workbench.action.tasks.test"
+    }
+]
