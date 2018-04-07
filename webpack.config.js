@@ -50,8 +50,8 @@ let config = [{
             }
         })
     ] : [
-        new CleanWebpackPlugin(['dist'])
-    ]
+            new CleanWebpackPlugin(['dist'])
+        ]
 }];
 
 module.exports = config;

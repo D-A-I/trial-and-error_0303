@@ -6,7 +6,7 @@ import * as $ from 'jquery';
 import Vue from 'vue';
 
 // 独自のモジュール
-// import { hello } from './sub';
+// import hello from './sub';
 
 $(function () {
     new Vue({

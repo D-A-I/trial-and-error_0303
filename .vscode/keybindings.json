@@ -7,7 +7,7 @@
         "command": "workbench.action.tasks.build"
     },
     {
-        "key": "shift+alt+l",
+        "key": "shift+alt+s",
         "command": "workbench.action.tasks.runTask",
         "args": "npm start"
     },

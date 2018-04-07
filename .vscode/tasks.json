@@ -2,11 +2,11 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
-    /* 移植性を踏まえ、各種コマンドは、npm-scriptsを使用し、webpackやtsc、テストランナー等々を呼ぶ 
-     * tasks.jsonはvscodeのショートカットキーとの紐付けに使用する
+    /* 移植性を踏まえ、各種コマンドは、npm scriptsを使用し、webpackやtsc、テストランナー等を呼ぶ 
+     * tasks.jsonは、vscodeのショートカットキーとの紐付けに使用する
      * -----
      * npm run build： shift+alt+b, ctrl+shift+b（デフォルト）
-     * npm start：     shift+alt+l
+     * npm start：     shift+alt+s
      * npm test：      shift+alt+t */
     "tasks": [
         {
