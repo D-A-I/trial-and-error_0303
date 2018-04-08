@@ -5,9 +5,9 @@
     /* 移植性を踏まえ、各種コマンドは、npm scriptsを使用し、webpackやtsc、テストランナー等を呼ぶ 
      * tasks.jsonは、vscodeのショートカットキーとの紐付けに使用する
      * -----
-     * npm run build： shift+alt+b, ctrl+shift+b（デフォルト）
-     * npm start：     shift+alt+s
-     * npm test：      shift+alt+t */
+     * npm run build： shift+alt+0, ctrl+shift+b（デフォルト）
+     * npm start：     shift+alt+8
+     * npm test：      shift+alt+9 */
     "tasks": [
         {
             "type": "npm",

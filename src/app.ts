@@ -1,8 +1,8 @@
 /**
- * import $ from 'jquery'にする場合、tsconfig.jsonで"allowSyntheticDefaultImports"をtrueにしないと、
- * default exportが無い旨のエラーになる。default exportは対応されなさそうなんで、import * as..を使用する
+ * jqueryは、$.ajax()が無いslim版を使用する。$.ajaxは、代わりにfetch apiを使用する
+ * jqueryは、default exportが対応されなさそうなんで、import * as..を使用する
  */
-import * as $ from 'jquery';
+import * as $ from 'jquery/dist/jquery.slim';
 import Vue from 'vue';
 
 // 独自のモジュール

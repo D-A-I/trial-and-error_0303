@@ -8,5 +8,6 @@ karmaでのBDDを中心に開発を進めることを想定し、HMRの設定は
 - yarn
 - vue
 - jquery  
-.. 未来のために、jqueryからumbrella.js等に変えようかとか思ってたが、  
-型定義ファイルが公開されておらず、自作はダルいので止める
+
+＊ jqueryからumbrella.js等に変えようかとか思ってたが、型定義ファイルが公開されておらず、自作はダルいので止める  
+＊ 軽量化のため、jqueryを、jquery.slim（$.ajax除外版）に変更

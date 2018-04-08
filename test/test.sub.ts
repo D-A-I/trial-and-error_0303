@@ -1,4 +1,4 @@
-import { hello } from '../src/sub';
+import hello from '../src/sub';
 /**
  * karmaのframeworksにchaiを指定しているため、chaiはimportしなくてもOK
  */
