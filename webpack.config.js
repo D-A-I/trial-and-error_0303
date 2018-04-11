@@ -8,15 +8,14 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-// node.jsの環境変数より、実行環境を判定する
-let isProduction = process.env.NODE_ENV === 'production';
-// 念のためモードを表示
-console.log(`\nproduction：${isProduction}\n`);
+// 環境変数 process.env.NODE_ENV が未定義の場合、developmentモードにしておく
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+console.log(process.env.NODE_ENV);
 
 // 定義を追加したい場合、オブジェクトリテラルを追加する
 let config = [{
     // 環境によってmodeを切替える
-    mode: isProduction ? 'production' : 'development',
+    mode: process.env.NODE_ENV,
     entry: './src/app',
     output: {
         path: `${__dirname}/dist`,
@@ -35,23 +34,19 @@ let config = [{
         }]
     },
     // 環境によってsourcemapを切り替える
-    devtool: isProduction ? false : 'source-map',
+    devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
     // 環境によって使用するプラグインを切り替える
-    plugins: isProduction ? [
-        // distフォルダのクリーンアップ（環境によらず共通）
+    plugins: [
         new CleanWebpackPlugin(['dist']),
         /* vue.js公式の指定
-         * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したいそう
-         * ＊ DefinePluginは、C言語の#defineと同様の機能
-         * ＊ npm scriptで、webpackをキックする時に環境変数を指定している。npm script経由なら必要ないかも..要確認 */
+         * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したいそう(Node.js環境下だけでなく)
+         * ＊ DefinePluginは、C言語の#defineと同様の機能 */
         new DefinePlugin({
             'process.env': {
-                NODE_ENV: '"production"'
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV)
             }
         })
-    ] : [
-            new CleanWebpackPlugin(['dist'])
-        ]
+    ]
 }];
 
 module.exports = config;
