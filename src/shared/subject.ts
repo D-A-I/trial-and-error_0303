@@ -8,13 +8,15 @@ export default class Subject {
     /**
      * observerを受け取る
      * @memberof Subject
+     * @param {Function} fnc
      */
     add = (fnc: Function) => this._observers.push(fnc);
     /**
      * observerを削除する
      * @memberof Subject
+     * @param {Function} fnc
      */
-    off = (fnc: Function) => {
+    remove = (fnc: Function) => {
         this._observers.forEach((obs, idx) => {
             // 合致する通知を削除する
             if (obs === fnc) this._observers.splice(idx, 1);
@@ -29,4 +31,11 @@ export default class Subject {
             obs();
         });
     };
+}
+/**
+ * observer用のインターフェース
+ * @interface Observer
+ */
+interface Observer {
+    [name: string]: Function;
 }

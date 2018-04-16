@@ -11,7 +11,7 @@ describe('モジュールを読込んでみる。', () => {
 });
 
 // 以下、未完成..
-import Subject from '../src/shared/observer';
+import Subject from '../src/shared/subject';
 describe('オブザーバーのテスト', () => {
     // オブザーバーを生成する
     let subject = new Subject();

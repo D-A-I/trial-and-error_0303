@@ -3,7 +3,7 @@
  * なお、default exportが対応されなさそうなんで、import * as..を使用する
  */
 import * as $ from 'jquery/dist/jquery.slim';
-import Subject from './shared/observer';
+import Subject from './shared/subject';
 import Vue from 'vue';
 
 // 独自のモジュール
