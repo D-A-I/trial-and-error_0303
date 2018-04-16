@@ -10,4 +10,4 @@ karmaでのBDDを中心に開発を進めることを想定し、HMRの設定は
 - jquery  
 
 ＊ jqueryからumbrella.js等に変えようかとか思ってたが、型定義ファイルが公開されておらず、自作はダルいので止める  
-＊ 軽量化のため、jqueryを、jquery.slim（$.ajax除外版）に変更
+＊ 軽量化のため、jqueryをjquery.slim（$.ajax除外版）に変更

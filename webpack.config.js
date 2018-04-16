@@ -10,7 +10,7 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 
 // 環境変数 process.env.NODE_ENV が未定義の場合、developmentモードにしておく
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-console.log(process.env.NODE_ENV);
+console.log(`  process.env.NODE_ENV -> ${process.env.NODE_ENV}\n`);
 
 // 定義を追加したい場合、オブジェクトリテラルを追加する
 let config = [{
