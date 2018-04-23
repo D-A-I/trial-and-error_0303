@@ -8,7 +8,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-// 環境変数 process.env.NODE_ENV が未定義の場合、developmentモードにしておく
+// 環境変数 process.env.NODE_ENV が未設定の場合、developmentモードにしておく
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 console.log(`  process.env.NODE_ENV -> ${process.env.NODE_ENV}\n`);
 
