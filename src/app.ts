@@ -4,9 +4,10 @@
  */
 import * as $ from 'jquery/dist/jquery.slim';
 /**
- *  bootstrapのjsを呼ぶ
- *  todo1：import 'xxx';について確認
- *  todo2：bootstrap内部のjqueryと上記のjqueryが重複していないことを確認したい..
+ * bootstrapのjsを呼ぶ
+ * todo1：この呼び方で、bootstrapの機能を不足なく使えるか確認
+ * todo2：import 'xxx';について確認
+ * todo3：bootstrap内部のjqueryと上記のjqueryが重複していないことを確認したい..
  */
 import 'bootstrap';
 import Vue from 'vue';
