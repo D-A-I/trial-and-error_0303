@@ -3,13 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- faviconの指定 -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,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">
+    <!-- とりあえず、bootstrapのCSSだけ使う｡｡ -->
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
     <title>BDDの枠組み</title>
 </head>
 
 <body>
     <div id="app">
-        {{ message }}
+        <h4>{{ message }}</h4>
+        <p></p>
+        <ul>
+            <li v-for="item in items">
+                <!-- v-model：双方向バインディング -->
+                <input type="checkbox" v-model="item.isChecked">{{ item.title }}
+            </li>
+        </ul>
+        <p>
+            <input type="text" placeholder="TODOを入力しよう" v-model="newTitle" v-on:keyup.enter="add(newTitle)">
+        </p>
     </div>
+    <a href="https://icons8.com">Icon pack by Icons8</a>
     <script src="dist/app.bundle.js"></script>
 </body>
 
