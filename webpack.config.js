@@ -8,7 +8,7 @@
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 
-// 環境変数 process.env.NODE_ENV が未定義の場合、developmentモードにしておく
+// 環境変数 process.env.NODE_ENV が未設定の場合、developmentモードにしておく
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 console.log(`  process.env.NODE_ENV -> ${process.env.NODE_ENV}\n`);
 
@@ -39,7 +39,8 @@ let config = [{
     plugins: [
         new CleanWebpackPlugin(['dist']),
         /* vue.js公式の指定
-         * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したいそう(Node.js環境下だけでなく)
+         * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したい
+         * (Node.js環境下でなく、bundleしたファイル内で)
          * ＊ DefinePluginは、C言語の#defineと同様の機能 */
         new DefinePlugin({
             'process.env': {

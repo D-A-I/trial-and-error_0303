@@ -11,14 +11,14 @@ describe('モジュールを読込んでみる。', () => {
 });
 
 // 以下、未完成..
-import Subject from '../src/shared/observer';
+import Subject from '../src/shared/subject';
 describe('オブザーバーのテスト', () => {
     // オブザーバーを生成する
     let subject = new Subject();
     // テストメッセージ
     const TEST_MSG = 'Good Morning';
     it(`${TEST_MSG}を渡すと、${TEST_MSG}が返却される`, () => {
-        subject.add(() => {
+        subject.add('peace', () => {
             return TEST_MSG;
         });
         /* テスト実行
