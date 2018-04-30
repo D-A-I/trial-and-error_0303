@@ -3,6 +3,7 @@
 typescript／karma／ES Module（webpack） 辺りを試行錯誤する  
 karmaでのBDDを中心に開発を進めることを想定し、HMRの設定はしてない  
 - typescript
+- bootstrap
 - webpack
 - karma(mocha, chai)
 - yarn
