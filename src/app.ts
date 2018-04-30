@@ -2,7 +2,12 @@
  * jqueryは、$.ajax()が無いslim版を使用する。$.ajaxの代わりにfetch apiを使用する
  * なお、default exportが対応されなさそうなので、import * as..を使用する
  */
-//import * as $ from 'jquery/dist/jquery.slim';
+import * as $ from 'jquery/dist/jquery.slim';
+/**
+ *  bootstrapのjsを呼ぶ
+ *  todo1：import 'xxx';について確認
+ *  todo2：bootstrap内部のjqueryと上記のjqueryが重複していないことを確認したい..
+ */
 import 'bootstrap';
 import Vue from 'vue';
 // 独自のモジュールテスト
@@ -13,6 +18,7 @@ $(function () {
     // 独自モジュール（オブザーバーを呼んでみる）
     observe();
 
+    // Vueインスタンスの生成
     new Vue({
         el: '#app',
         data: {
