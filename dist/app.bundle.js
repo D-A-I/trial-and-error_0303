@@ -28401,9 +28401,9 @@ $(function () {
                 { title: 'MS Azureを試す', isChecked: true },
                 { title: 'jquery.slimを試す', isChecked: false },
                 { title: 'typescriptで簡単なobserverパターンのコードを書く（break through JSの本より）', isChecked: false },
-                { title: 'fetch apiを試す', isChecked: false },
-                { title: 'promiseを試す', isChecked: false },
-                { title: 'async/awaitを試す', isChecked: false }
+                { title: 'fetch apiを試す（tsconfig.jsonのlib[“dom”]）', isChecked: false },
+                { title: 'promiseを試す（tsconfig.jsonのlib[“es2015.promise”]）', isChecked: false },
+                { title: 'async/awaitを試す（tsconfig.jsonのlib[“es2015.promise”]）', isChecked: false }
             ],
             newTitle: ''
         },
