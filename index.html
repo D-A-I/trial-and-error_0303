@@ -10,21 +10,26 @@
     <title>BDDの枠組み</title>
 </head>
 
-<body>
+<!-- フォントが可愛くないので変更 -->
+<body style="font-family: monospace; font-size: 14pt">
     <div id="app">
         <h4>{{ message }}</h4>
         <p></p>
-        <ul>
-            <li v-for="item in items">
-                <!-- v-model：双方向バインディング -->
-                <input type="checkbox" v-model="item.isChecked">{{ item.title }}
-            </li>
-        </ul>
-        <p>
-            <input type="text" placeholder="TODOを入力しよう" v-model="newTitle" v-on:keyup.enter="add(newTitle)">
-        </p>
+        <!-- 左側のスペースは不要なので変更 -->
+        <div class="container" style="margin-left: 0px">
+            <ul>
+                <li v-for="item in items">
+                    <!-- v-model：双方向バインディング -->
+                    <input type="checkbox" v-model="item.isChecked">{{ item.title }}
+                </li>
+            </ul>
+            <p>
+                <input type="text" class="text" placeholder="TODOを入力しよう" v-model="newTitle" v-on:keyup.enter="add(newTitle)">
+            </p>
+        </div>
     </div>
     <a href="https://icons8.com">Icon pack by Icons8</a>
+    <script src="dist/common_lib.bundle.js"></script>
     <script src="dist/app.bundle.js"></script>
 </body>
 

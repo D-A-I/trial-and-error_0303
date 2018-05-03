@@ -16,22 +16,32 @@ console.log(`  process.env.NODE_ENV -> ${process.env.NODE_ENV}\n`);
 let config = [{
     // 環境によってmodeを切替える
     mode: process.env.NODE_ENV,
-    entry: './src/app',
+    entry: {
+        app: './src/app'
+    },
     output: {
         path: `${__dirname}/dist`,
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],
+        extensions: ['.ts', '.tsx', '.js'], // 拡張子の解決
         alias: {
             'vue$': 'vue/dist/vue.esm.js'
         }
     },
     module: {
+        // 拡張子がtsのファイルを、ts-loaderでトランスパイルする
         rules: [{
-            test: /\.tsx?$/,
+            test: /\.ts$/,
             use: 'ts-loader'
         }]
+    },
+    optimization:{
+        // 複数のバンドルファイル間で共通しているモジュールを"common_lib.bundle.js"に切り出す
+        splitChunks: {
+            name: 'common_lib',
+            chunks: 'initial'
+        }
     },
     // 環境によってsourcemapを切り替える
     devtool: process.env.NODE_ENV === 'development' ? 'source-map' : false,
@@ -39,9 +49,7 @@ let config = [{
     plugins: [
         new CleanWebpackPlugin(['dist']),
         /* vue.js公式の指定
-         * productionモードの場合は、vue.jsの内部で、process.env.NODE_ENVを'production'という文字列に置換したい
-         * (Node.js環境下でなく、bundleしたファイル内で)
-         * ＊ DefinePluginは、C言語の#defineと同様の機能 */
+         * todo：productionとdevelopmentで、バンドルファイルを比較したい｡｡ */
         new DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify(process.env.NODE_ENV)

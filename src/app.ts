@@ -2,15 +2,15 @@
  * jqueryは、$.ajax()が無いslim版を使用する。$.ajaxの代わりにfetch apiを使用する
  * なお、default exportが対応されなさそうなので、import * as..を使用する
  */
-//import * as $ from 'jquery/dist/jquery.slim';
-import 'bootstrap';
+import * as $ from 'jquery/dist/jquery.slim';
 import Vue from 'vue';
-// 独自のモジュールテスト
 import observe from './sub';
+
+// import 'bootstrap'; // globalへの展開
 
 $(function () {
 
-    // 独自モジュール（オブザーバーを呼んでみる）
+    // 独自モジュールのテスト（オブザーバーの動確）
     observe();
 
     new Vue({
