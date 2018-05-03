@@ -13,6 +13,7 @@ $(function () {
     // 独自モジュールのテスト（オブザーバーの動確）
     observe();
 
+    // Vueインスタンスの生成
     new Vue({
         el: '#app',
         data: {
