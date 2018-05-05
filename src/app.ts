@@ -1,5 +1,5 @@
 /**
- * jqueryは、$.ajax()が無いslim版を使用する。$.ajaxの代わりにfetch apiを使用する
+ * jqueryは、$.ajax()が無いslim版を使用し、$.ajaxの代わりにfetch apiを使用する
  * なお、default exportが対応されなさそうなので、import * as..を使用する -> interfaceでaliasできないか確認
  */
 import * as $ from 'jquery/dist/jquery.slim';
@@ -11,7 +11,9 @@ import observe from './sub';
 /* Vue.jsの場合、$(funtion().. に内包する必要は無さそう。DOMのレンダリングは、Vueインスタンスの
  * ライフサイクルフックに組み込まれていて、Vue.js内部で適切に処理される */
 
-// Vueインスタンスの生成
+/* Vueインスタンスの生成
+ * ※ コンストラクタ関数下のプロパティや、methods下のメソッドには、アロー関数式を使用しない
+ * 　 詳細は右記 https://jp.vuejs.org/v2/api/index.html */
 new Vue({
     el: '#app',
     data: {
