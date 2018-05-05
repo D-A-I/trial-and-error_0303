@@ -21,7 +21,7 @@ new Vue({
             { title: 'Vue.jsのコンポーネントを試す（本アプリ）', isChecked: false },
             { title: 'typescriptでobserverパターンのコードを書く（break through JS 参照）', isChecked: true },
             { title: 'fetch apiを試す（tsconfig.jsonのlib["dom"]）', isChecked: false },
-            { title: 'jquery.slimを試す（$.ajaxをasync/await化してみる）', isChecked: false },
+            { title: 'jquery.slimを試す（$.ajax()をasync/await化してみる）', isChecked: false },
             { title: 'observerパターンのコードを拡張する（break through JS 参照）', isChecked: false },
         ],
         newTitle: ''
