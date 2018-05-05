@@ -9,7 +9,7 @@ import observe from './sub';
 // import 'bootstrap'; // globalへの展開
 
 /* Vue.jsの場合、$(funtion().. に内包する必要は無さそう。DOMのレンダリングは、Vueインスタンスの
- * ライフサイクルフックに組み込まれていて、Vue.js内部で適切に処理されている */
+ * ライフサイクルフックに組み込まれていて、Vue.js内部で適切に処理される */
 
 // Vueインスタンスの生成
 new Vue({
@@ -18,11 +18,11 @@ new Vue({
         message: 'kitty on the lap',
         items: [
             { title: 'MS Azureを試す', isChecked: true },
-            { title: 'jquery.slimを試す', isChecked: false },
-            { title: 'typescriptで簡単なobserverパターンのコードを書く（break through JSの本より）', isChecked: false },
+            { title: 'Vue.jsのコンポーネントを試す（本アプリ）', isChecked: false },
+            { title: 'typescriptでobserverパターンのコードを書く（break through JS 参照）', isChecked: true },
             { title: 'fetch apiを試す（tsconfig.jsonのlib[“dom”]）', isChecked: false },
-            { title: 'promiseを試す（tsconfig.jsonのlib[“es2015.promise”]）', isChecked: false },
-            { title: 'async/awaitを試す（tsconfig.jsonのlib[“es2015.promise”]）', isChecked: false }
+            { title: 'jquery.slimを試す（$.ajaxをasync/await化してみる）', isChecked: false },
+            { title: 'observerパターンのコードを拡張する（break through JS 参照）', isChecked: false },
         ],
         newTitle: ''
     },
@@ -53,7 +53,7 @@ new Vue({
             // itemsが取れなかった場合、空の配列を返す
             let savedData = localStorage.getItem('items');
             if (savedData === null) return;
-            // Type GuardsでsavedDataはstringに絞られる
+            // Type Guardsで、savedDataはstringに絞られる
             this.items = JSON.parse(savedData);
         },
         /**
