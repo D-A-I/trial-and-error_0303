@@ -45,7 +45,7 @@ export default class Subject {
     };
 }
 /**
- * observer用のインターフェース
+ * observer用のインターフェース
  * @interface Observer
  */
 interface Observer {
