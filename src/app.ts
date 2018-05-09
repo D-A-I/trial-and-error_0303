@@ -8,23 +8,18 @@ import observe from './sub';
 
 // import 'bootstrap'; // globalへの展開
 
-/* Vue.jsの場合、$(funtion().. に内包する必要は無さそう。DOMのレンダリングは、Vueインスタンスの
- * ライフサイクルフックに組み込まれていて、Vue.js内部で適切に処理される */
+/* Vue.jsの場合、$(funtion().. に内包する必要は無さそう。Vueインスタンスのライフサイクル内で、
+ * DOMのレンダリングにフックしている。もし、別途 $(funtion().. 内の処理が必要となる場合は、以下のmountedを参照 */
 
 // Vueインスタンスの生成
 new Vue({
-    /* ※ Vue.jsのコンストラクタ関数直下のプロパティやメソッドには、アロー関数式を使用しない
+    /* ※ Vue.jsのコンストラクタ関数直下のプロパティやメソッドの定義では、アロー関数式を使用しない
      * 　 詳細は右記 https://jp.vuejs.org/v2/api/index.html */
     el: '#app',
     data: {
         message: 'kitty on the lap',
         items: [
-            { title: 'MS Azureを試す', isChecked: true },
-            { title: 'Vue.jsのコンポーネントを試す（本アプリ）', isChecked: false },
-            { title: 'typescriptでobserverパターンのコードを書く（break through JS 参照）', isChecked: true },
-            { title: 'fetch apiを試す（tsconfig.jsonのlib["dom"]）', isChecked: false },
-            { title: 'jquery.slimを試す（$.ajax()をasync/await化してみる）', isChecked: false },
-            { title: 'observerパターンのコードを拡張する（break through JS 参照）', isChecked: false },
+            { title: '', isChecked: false }
         ],
         newTitle: ''
     },
@@ -34,10 +29,7 @@ new Vue({
          * @param {string} title
          */
         add: function (title: string): void {
-            this.items.push({
-                title: title,
-                isChecked: false
-            });
+            this.items.push({ title: title, isChecked: false });
             this.newTitle = '';
             this.saveTodo();
         },
@@ -45,6 +37,7 @@ new Vue({
          * todoを削除する
          */
         deleteTodo: function (): void {
+            /* メソッド内ならアロー関数式を使用しても良いが、thisは使わないようにする */
             this.items = this.items.filter((x) => x.isChecked === false);
             this.saveTodo();
         },
@@ -59,6 +52,19 @@ new Vue({
             this.items = JSON.parse(savedData);
         },
         /**
+         * jsonファイルから初期データを取得する
+         */
+        getInitialData: function (): void {
+            fetch('../init-data.json')
+                .then(res => {
+                    return res.json();
+                })
+                .then(json => {
+                    this.items = json.todo;
+                })
+                .catch(err => console.log(err)); // エラー発生時はログに記録する
+        },
+        /**
          * localstrageにtodoを保存する
          */
         saveTodo: function (): void {
@@ -66,14 +72,22 @@ new Vue({
         }
     },
     /**
-     * Vueインスタンスがマウントされた時に呼ばれる処理（Vue.js API／ライフサイクルフック）
+     * Vueインスタンスが作成された時に呼ばれる（Vue.js API／ライフサイクルフック）
+     */
+    created: function () {
+        // 初期データ取得時に使用したいが、まだ挙動を掴めてない｡｡
+    },
+    /**
+     * Vueインスタンスがマウントされた時に呼ばれる（Vue.js API／ライフサイクルフック）
      */
     mounted: function () {
+        // localstrageからデータ取得
         this.loadTodo();
-    }
-});
-
-$(function () {
-    // 独自モジュールのテスト（オブザーバーの動確）
-    observe();
+        // jsonファイルから初期データ取得（localstrageに無い場合）
+        if (this.items.length === 1) this.getInitialData();
+        /* ビュー全体がレンダリングされた後の処理は以下に書く（既存の $(funtion().. 内のデータ取得以外の処理はここに） */
+        this.$nextTick(function () {
+            observe();
+        });
+    },
 });

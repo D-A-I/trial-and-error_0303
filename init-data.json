@@ -1,0 +1,36 @@
+{
+    "todo": [
+        {
+            "title": "MS Azureを試す",
+            "isChecked": true
+        },
+        {
+            "title": "typescriptでobserverパターンのコードを書く（break through JS 参照）",
+            "isChecked": true
+        },
+        {
+            "title": "Vue.jsのコンポーネントを試す（本アプリ）",
+            "isChecked": false
+        },
+        {
+            "title": "jsonファイルから初期データを読み込む方式にしたい（↓参照）",
+            "isChecked": false
+        },
+        {
+            "title": "fetch apiを試す（tsconfig.jsonのlib['dom']）",
+            "isChecked": false
+        },
+        {
+            "title": "jquery.slimを試す（$.ajax()をasync/await化）",
+            "isChecked": false
+        },
+        {
+            "title": "observerパターンのコードを拡張する（break through JS 参照）",
+            "isChecked": false
+        },
+        {
+            "title": "Vue.js公式のBDD環境を導入する",
+            "isChecked": false
+        }
+    ]
+}
