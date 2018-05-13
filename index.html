@@ -13,12 +13,18 @@
         }
     </style>
     <title>BDDの枠組み</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 
 <!-- フォントが可愛くないので変更 -->
 
 <body style="font-family: monospace; font-size: 14pt">
-    <div id="app">
+    <!-- v-cloakは、未コンパイルの{{}}を非表示にする -->
+    <div id="app" v-cloak>
         <h4>{{ message }}</h4>
         <p></p>
         <!-- 左側のスペースは不要なので変更..てか、row等々は追々付ける -->
