@@ -8,7 +8,7 @@ import observe from './sub';
 
 // import 'bootstrap'; // globalへの展開
 
-/* Vue.jsの場合、$(funtion().. に内包する必要は無さそう。Vueインスタンスのライフサイクル内で、
+/* Vue.jsの場合、$(funtion().. に内包する必要は無い。Vueインスタンスのライフサイクル内で、
  * DOMのレンダリングにフックしている。もし、別途 $(funtion().. 内の処理が必要となる場合は、以下のmountedを参照 */
 
 // Vueインスタンスの生成
@@ -18,10 +18,21 @@ new Vue({
     el: '#app',
     data: {
         message: 'kitty on the lap',
-        items: [
-            { title: '', isChecked: false }
-        ],
+        items: new Array<Todo>(),
         newTitle: ''
+    },
+    /**
+     * Vueインスタンスがマウントされた時に呼ばれる（Vue.js API.. ライフサイクルフック）
+     */
+    mounted: function () {
+        // localstrageからデータ取得
+        this.loadTodo();
+        // jsonファイルから初期データ取得（localstrageに無い場合）
+        if (this.items.length === 0) this.getInitialData();
+        /* ビュー全体がレンダリングされた後の処理は以下に書く（既存の $(funtion().. 内のデータ取得以外の処理はここ） */
+        this.$nextTick(function () {
+            observe();
+        });
     },
     methods: {
         /**
@@ -71,23 +82,9 @@ new Vue({
             localStorage.setItem('items', JSON.stringify(this.items));
         }
     },
-    /**
-     * Vueインスタンスが作成された時に呼ばれる（Vue.js API／ライフサイクルフック）
-     */
-    created: function () {
-        // 初期データ取得時に使用したいが、まだ挙動を掴めてない｡｡
-    },
-    /**
-     * Vueインスタンスがマウントされた時に呼ばれる（Vue.js API／ライフサイクルフック）
-     */
-    mounted: function () {
-        // localstrageからデータ取得
-        this.loadTodo();
-        // jsonファイルから初期データ取得（localstrageに無い場合）
-        if (this.items.length === 1) this.getInitialData();
-        /* ビュー全体がレンダリングされた後の処理は以下に書く（既存の $(funtion().. 内のデータ取得以外の処理はここに） */
-        this.$nextTick(function () {
-            observe();
-        });
-    },
 });
+
+interface Todo {
+    title: string,
+    isChecked: boolean
+}
