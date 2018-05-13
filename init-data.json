@@ -9,15 +9,15 @@
             "isChecked": true
         },
         {
-            "title": "Vue.jsのコンポーネントを試す（本アプリ）",
+            "title": "Vue.jsのコンポーネントを試す（本アプリ）.. https://qiita.com/moonglows76/items/358ef3cd1566c38ece3a",
             "isChecked": false
         },
         {
             "title": "jsonファイルから初期データを読み込む方式にしたい（↓参照）",
-            "isChecked": false
+            "isChecked": true
         },
         {
-            "title": "fetch apiを試す（tsconfig.jsonのlib['dom']）",
+            "title": "fetch apiを試す（tsconfig.jsonのlib['dom']で対応可能か、要確認）",
             "isChecked": false
         },
         {

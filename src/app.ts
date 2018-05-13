@@ -22,7 +22,7 @@ new Vue({
         newTitle: ''
     },
     /**
-     * Vueインスタンスがマウントされた時に呼ばれる（Vue.js API.. ライフサイクルフック）
+     * Vueインスタンスがマウントされた時に呼ばれる（Vue.js API ライフサイクルフック）
      */
     mounted: function () {
         // localstrageからデータ取得
@@ -48,7 +48,7 @@ new Vue({
          * todoを削除する
          */
         deleteTodo: function (): void {
-            /* メソッド内ならアロー関数式を使用しても良いが、thisは使わないようにする */
+            /* メソッド内ならアロー関数式を使用しても良いが、混乱を避けるため、thisは使わない */
             this.items = this.items.filter((x) => x.isChecked === false);
             this.saveTodo();
         },
@@ -84,6 +84,10 @@ new Vue({
     },
 });
 
+/**
+ * Todo用インターフェース
+ * @interface Todo
+ */
 interface Todo {
     title: string,
     isChecked: boolean
